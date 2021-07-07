@@ -5,7 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "HanoyTowers",
-    products: [],
+    products: [
+        .library(name: "HanoyTowers", targets: ["Induction"]),
+    ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-algorithms", from: "0.0.1"),],
     targets: [
