@@ -1,2 +1,2 @@
 import Induction
-HanoyApp().run()
+App().run()

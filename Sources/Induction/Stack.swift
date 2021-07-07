@@ -1,6 +1,6 @@
 import Algorithms
 
-protocol EmptyInit {
+public protocol EmptyInit {
     init()
     var isEmpty: Bool { get }
 }
@@ -18,14 +18,14 @@ struct Block<Sandbox: Collection>: Collection, Comparable {
 
 enum StackError: Error { case bigerThanLast, undefined }
 
-struct VerticalStack<Row: Collection> where Row.Element: EmptyInit, Row: Comparable {
+public struct VerticalStack<Row: Collection> where Row.Element: EmptyInit, Row: Comparable {
     
     
     var rows: [Row]
-    init() {
+    public init() {
         rows = []
     }
-    var width: Int {
+    public var width: Int {
         let counts = rows.reduce([Int]()) { array, row in
             var a = array
             a.append(row.count)
@@ -33,20 +33,20 @@ struct VerticalStack<Row: Collection> where Row.Element: EmptyInit, Row: Compara
         }
         return counts.max() ?? 0
     }
-    var height: Int {
+    public var height: Int {
         return rows.count
     }
-    var emptyRow: [Row.Element] {
+    public var emptyRow: [Row.Element] {
         return Array(repeating: Row.Element(), count: width)
     }
-    subscript (index: Int) -> Chain2<Row, [Row.Element]>? {
+    public subscript (index: Int) -> Chain2<Row, [Row.Element]>? {
         guard rows.indices.contains(index) else { return nil }
         let row = rows[index]
         let dif = Array(repeating: Row.Element(), count: width - row.count)
         let z = chain(row, dif)
         return z
     } 
-    mutating func push(element: Row) throws {
+    public mutating func push(element: Row) throws {
         if rows.isEmpty {
             rows.append(element)            
         } else {
@@ -54,30 +54,30 @@ struct VerticalStack<Row: Collection> where Row.Element: EmptyInit, Row: Compara
             rows.append(element)  
         }
     }
-    mutating func pop() -> Row? {
+    public mutating func pop() -> Row? {
         rows.popLast()
     }
 }
 
-enum StackPosition: Int, CaseIterable { 
+public enum StackPosition: Int, CaseIterable { 
     
     case rightStack = 0, middleStack, leftStack
-    static func getReminder(a: StackPosition, b: StackPosition) -> StackPosition {
+    public static func getReminder(a: StackPosition, b: StackPosition) -> StackPosition {
         let reduce = StackPosition.allCases.reduce(0) { $0 + $1.rawValue }
         return StackPosition(rawValue: reduce - (a.rawValue + b.rawValue))!
     }
     
 }
 
-struct HorisontalStck<Element> where Element: Collection, Element.Element: EmptyInit, Element: Comparable {
+public struct HorisontalStck<Element> where Element: Collection, Element.Element: EmptyInit, Element: Comparable {
     
     var columns: [VerticalStack<Element>]
     
-    init() {
+    public init() {
         columns = []
     }
     
-    var higherColumnCount: Int {
+    public var higherColumnCount: Int {
         let counts = columns.reduce([Int]()) { array, stack in
             var a = array
             a.append(stack.height)
@@ -87,14 +87,14 @@ struct HorisontalStck<Element> where Element: Collection, Element.Element: Empty
     }
     
     
-    mutating func push(column: VerticalStack<Element>) {
+    public mutating func push(column: VerticalStack<Element>) {
         columns.append(column)
     }
     
-    mutating func popBlock(from position: StackPosition) -> Element? {
+    public mutating func popBlock(from position: StackPosition) -> Element? {
         columns[position.rawValue].pop()
     }
-    mutating func push(block: Element, to position: StackPosition) {
+    public mutating func push(block: Element, to position: StackPosition) {
         do {
             try columns[position.rawValue].push(element: block) 
         } catch StackError.bigerThanLast {
@@ -106,7 +106,7 @@ struct HorisontalStck<Element> where Element: Collection, Element.Element: Empty
         }
     }
     
-    func getRows() -> [[Element.Element]] {
+    public func getRows() -> [[Element.Element]] {
         var r = columns.reduce(0) { $0 + ($1.width + 1) }
         if columns.count > 2 { r -= 1 }
        
@@ -149,5 +149,9 @@ struct HorisontalStck<Element> where Element: Collection, Element.Element: Empty
     
     func render()  {
         print(getText())
+    }
+    
+    func cleanrender() {
+        
     }
 }

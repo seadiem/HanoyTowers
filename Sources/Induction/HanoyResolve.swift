@@ -28,9 +28,6 @@ struct RecursionResolve {
         var h = HorisontalStck<Block<[Cell]>>()
         let v = VerticalStack<Block<[Cell]>>()
         
-        
-        
-        
         h.push(column: v)
         h.push(column: v)
         h.push(column: v)
