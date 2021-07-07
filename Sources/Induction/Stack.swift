@@ -5,15 +5,15 @@ public protocol EmptyInit {
     var isEmpty: Bool { get }
 }
 
-struct Block<Sandbox: Collection>: Collection, Comparable {
+public struct Block<Sandbox: Collection>: Collection, Comparable {
     let sandbox: Sandbox
-    init(box: Sandbox) { sandbox = box }
-    var startIndex: Sandbox.Index { sandbox.startIndex }
-    var endIndex: Sandbox.Index { sandbox.endIndex }
-    subscript(position: Sandbox.Index) -> Sandbox.Element { sandbox[position] }
-    func index(after i: Sandbox.Index) -> Sandbox.Index { sandbox.index(after: i) }
-    static func < (lhs: Block<Sandbox>, rhs: Block<Sandbox>) -> Bool { lhs.sandbox.count < rhs.sandbox.count }
-    static func == (lhs: Block<Sandbox>, rhs: Block<Sandbox>) -> Bool { lhs.sandbox.count == rhs.sandbox.count }
+    public init(box: Sandbox) { sandbox = box }
+    public var startIndex: Sandbox.Index { sandbox.startIndex }
+    public var endIndex: Sandbox.Index { sandbox.endIndex }
+    public subscript(position: Sandbox.Index) -> Sandbox.Element { sandbox[position] }
+    public func index(after i: Sandbox.Index) -> Sandbox.Index { sandbox.index(after: i) }
+    public static func < (lhs: Block<Sandbox>, rhs: Block<Sandbox>) -> Bool { lhs.sandbox.count < rhs.sandbox.count }
+    public static func == (lhs: Block<Sandbox>, rhs: Block<Sandbox>) -> Bool { lhs.sandbox.count == rhs.sandbox.count }
 }
 
 enum StackError: Error { case bigerThanLast, undefined }
