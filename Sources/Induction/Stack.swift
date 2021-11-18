@@ -90,6 +90,9 @@ public struct HorisontalStck<Element> where Element: Collection, Element.Element
         return counts.max() ?? 0
     }
     
+    public subscript(position: StackPosition) -> VerticalStack<Element> {
+        columns[position.rawValue]
+    }
     
     public mutating func push(column: VerticalStack<Element>) {
         columns.append(column)
