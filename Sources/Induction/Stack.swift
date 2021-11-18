@@ -6,8 +6,12 @@ public protocol EmptyInit {
 }
 
 public struct Block<Sandbox: Collection>: Collection, Comparable {
+    public let id: Int
     public let sandbox: Sandbox
-    public init(box: Sandbox) { sandbox = box }
+    public init(box: Sandbox, id: Int = 0) {
+        self.sandbox = box
+        self.id = id
+    }
     public var startIndex: Sandbox.Index { sandbox.startIndex }
     public var endIndex: Sandbox.Index { sandbox.endIndex }
     public subscript(position: Sandbox.Index) -> Sandbox.Element { sandbox[position] }
