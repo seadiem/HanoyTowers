@@ -2,11 +2,11 @@ public struct App {
     
     public init() {}
     public func run() {
-        checkStack()
+        HanoyApp().run()
     }
     
     func checkStack() {
-        var h = HorisontalStck<Block<[Cell]>>()
+        let h = HorisontalStck<Block<[Cell]>>()
         h.render()
     }
     

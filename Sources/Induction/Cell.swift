@@ -1,13 +1,13 @@
-enum Cell: String, EmptyInit, CustomStringConvertible {
+public enum Cell: String, EmptyInit, CustomStringConvertible {
     
     case empty = "◻︎"
     case full = "◼︎"
     case rhombus = "◆"
     case hart = "❤︎"
     case snow = "❆"
-    init() { self = .empty }
-    var isEmpty: Bool { self == .empty }
-    var description: String { rawValue }
+    public init() { self = .empty }
+    public var isEmpty: Bool { self == .empty }
+    public var description: String { rawValue }
 }
 
 

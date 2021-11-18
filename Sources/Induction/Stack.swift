@@ -147,7 +147,7 @@ public struct HorisontalStck<Element> where Element: Collection, Element.Element
         return out
     }
     
-    func render()  {
+    public func render()  {
         print(getText())
     }
     

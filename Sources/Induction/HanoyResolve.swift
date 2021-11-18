@@ -1,9 +1,9 @@
-struct RecursionResolve {
+public struct RecursionResolve {
     
-    func move(from a: StackPosition, 
-              to b: StackPosition, 
-              howMuchBlocks: Int, 
-              stack: HorisontalStck<Block<[Cell]>>) -> HorisontalStck<Block<[Cell]>> {
+    public func move(from a: StackPosition,
+                     to b: StackPosition,
+                     howMuchBlocks: Int,
+                     stack: HorisontalStck<Block<[Cell]>>) -> HorisontalStck<Block<[Cell]>> {
         if howMuchBlocks == 1 {
             var h = stack
             let block = h.popBlock(from: a)!
@@ -22,6 +22,8 @@ struct RecursionResolve {
             return h1
         }
     }
+    
+    public init() {}
     
     func run() {
         print("\nbegin")

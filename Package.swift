@@ -12,10 +12,13 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-algorithms", from: "0.0.1"),],
     targets: [
         .target(
+            name: "BufferMap",
+            dependencies: ["Induction"]),
+        .target(
             name: "Induction",
             dependencies: [.product(name: "Algorithms", package: "swift-algorithms")]),
         .target(
             name: "InductionApp",
-            dependencies: ["Induction"]),
+            dependencies: ["Induction", "BufferMap"]),
     ]
 )
