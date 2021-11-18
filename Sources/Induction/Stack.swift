@@ -39,7 +39,7 @@ public struct VerticalStack<Row: Collection> where Row.Element: EmptyInit, Row: 
     public var emptyRow: [Row.Element] {
         return Array(repeating: Row.Element(), count: width)
     }
-    public subscript (index: Int) -> Chain2<Row, [Row.Element]>? {
+    public subscript (index: Int) -> Chain2Sequence<Row, [Row.Element]>? {
         guard rows.indices.contains(index) else { return nil }
         let row = rows[index]
         let dif = Array(repeating: Row.Element(), count: width - row.count)

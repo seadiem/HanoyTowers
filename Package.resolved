@@ -5,9 +5,9 @@
         "package": "swift-algorithms",
         "repositoryURL": "https://github.com/apple/swift-algorithms",
         "state": {
-          "branch": null,
-          "revision": "bb3bafeca0e164ece3403a9de646b7d38c07dd49",
-          "version": "0.0.2"
+          "branch": "main",
+          "revision": "e2fa131d62604027889fcf87bb4d024e6576ac66",
+          "version": null
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/apple/swift-numerics",
         "state": {
           "branch": null,
-          "revision": "6b24333510e9044cf4716a07bed65eeed6bc6393",
-          "version": "0.0.8"
+          "revision": "0a23770641f65a4de61daf5425a37ae32a3fd00d",
+          "version": "1.0.1"
         }
       }
     ]

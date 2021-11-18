@@ -9,7 +9,8 @@ let package = Package(
         .library(name: "HanoyTowers", targets: ["Induction"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-algorithms", from: "0.0.1"),],
+        .package(url: "https://github.com/apple/swift-algorithms", .branch("main")),
+    ],
     targets: [
         .target(
             name: "BufferMap",
