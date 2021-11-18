@@ -6,7 +6,7 @@ public protocol EmptyInit {
 }
 
 public struct Block<Sandbox: Collection>: Collection, Comparable {
-    public let id: Int
+    public var id: Int
     public let sandbox: Sandbox
     public init(box: Sandbox, id: Int = 0) {
         self.sandbox = box
