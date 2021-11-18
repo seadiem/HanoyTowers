@@ -25,7 +25,7 @@ enum StackError: Error { case bigerThanLast, undefined }
 public struct VerticalStack<Row: Collection> where Row.Element: EmptyInit, Row: Comparable {
     
     
-    var rows: [Row]
+    public var rows: [Row]
     public init() {
         rows = []
     }
